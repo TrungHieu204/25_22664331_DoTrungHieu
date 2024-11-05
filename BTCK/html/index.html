@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KiemtraTK</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        .mauDo {
+            font-size: 100%;
+            color: red;
+        }
+        
+        .mauXanh {
+            font-size: 100%;
+            color: green;
+        }
+        
+        [class*="col-"] {
+            padding-right: 0;
+            padding-left: 0;
+        }
+        
+        li {
+            width: 150px;
+        }
+        
+        #form1 {
+            height: AUTO;
+        }
+        
+        .footer {
+            margin-left: 400px;
+        }
+        
+        p {
+            margin-left: 28px;
+        }
+        /* Table styling */
+        
+        #tbDanhSach {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        #tbDanhSach th,
+        #tbDanhSach td {
+            border: 1px solid #cccccc;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        #tbDanhSach th {
+            color: rgb(2, 16, 27);
+            font-weight: bold;
+        }
+        
+        #tbDanhSach tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        #tbDanhSach tr:hover {
+            background-color: #d0e2ed;
+        }
+        /* Table header styling */
+        
+        .table-container h2 {
+            background-color: #00796b;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+        }
+        /* General page styling */
+        
+        .table-container {
+            padding: 20px;
+            border: 1px solid #cccccc;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            width: 90%;
+            margin: auto;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            var i = 2; // Initial serial number for the table rows
+
+            // Show modal for adding salary details
+            $("#btnTT").click(function() {
+                $("#myModal").modal("show");
+            });
+
+            // Update "Hệ số" field based on selected "Bậc lương"
+            $("#selectBacLuong").change(function() {
+                var heSoLuong = $(this).val(); // Get the salary factor from the selected option
+                $("#txtHeSo").val(heSoLuong); // Set the value in the "Hệ số" textbox
+            });
+
+            function kiemTraMa() {
+                var mauKT = /^([0-9]{9})$/;
+                var maValue = $("#txtMa").val();
+                if (maValue === "") {
+                    $("#tbMa").html("Bắt buộc nhập").addClass("mauDo").removeClass("mauXanh");
+                    return false;
+                } else if (!mauKT.test(maValue)) {
+                    $("#tbMa").html("Mã nhân sự có 9 chữ số: 91234567").addClass("mauDo").removeClass("mauXanh");
+                    return false;
+                } else {
+                    $("#tbMa").html("Nhập đúng rồi").addClass("mauXanh").removeClass("mauDo");
+                    return true;
+                }
+            }
+
+            function kiemTraHT() {
+                var regex = /^([A-Z]{1}[a-z]+)(\s[A-Z]{1}[a-z]*)+$/;
+                var hoten = $("#txtHT").val();
+                if (hoten === "") {
+                    $("#tbTen").html("Vui lòng nhập lại").addClass("mauDo").removeClass("mauXanh");
+                    return false;
+                } else if (!regex.test(hoten)) {
+                    $("#tbTen").html("Chỉ nhập chữ hoa đầu từ không nhập số không hoặc rỗng").addClass("mauDo").removeClass("mauXanh");
+                    return false;
+                } else {
+                    $("#tbTen").html("Nhập đúng rồi").addClass("mauXanh").removeClass("mauDo");
+                    return true;
+                }
+            }
+
+            function kiemTraDate() {
+                var inputDate = new Date($("#txtDate").val());
+                var today = new Date();
+                today.setFullYear(today.getFullYear() - 18); // Set the threshold date to 18 years ago
+
+                if ($("#txtDate").val() === "") {
+                    $("#tbDate").html("Bắt buộc nhập").addClass("mauDo").removeClass("mauXanh");
+                    return false;
+                } else if (inputDate >= today || isNaN(inputDate.getTime())) {
+                    $("#tbDate").html("Ngày vào công ty phải trước ngày hiện tại 18 năm.").addClass("mauDo").removeClass("mauXanh");
+                    return false;
+                } else {
+                    $("#tbDate").html("Nhập đúng rồi").addClass("mauXanh").removeClass("mauDo");
+                    return true;
+                }
+            }
+
+            function kiemTraChucVu() {
+                var chucVu = $("input[name='chucVu']:checked").val();
+                if (!chucVu) {
+                    $("#tbCV").html("Vui lòng chọn chức vụ").addClass("mauDo").removeClass("mauXanh");
+                    return false;
+                } else {
+                    $("#tbCV").html("Nhập đúng rồi").addClass("mauXanh").removeClass("mauDo");
+                    return true;
+                }
+            }
+
+            // Attach blur events for validation
+            $("#txtMa").blur(kiemTraMa);
+            $("#txtHT").blur(kiemTraHT);
+            $("#txtDate").blur(kiemTraDate);
+            $("input[name='chucVu']").change(kiemTraChucVu);
+
+            // Handle the "Thêm" button click event
+            $("#btnSave").click(function() {
+                if (!kiemTraMa() || !kiemTraHT() || !kiemTraDate() || !kiemTraChucVu()) {
+                    alert("Vui lòng nhập đầy đủ và đúng thông tin cần thiết trước khi thêm vào bảng.");
+                    return false;
+                } else {
+                    // Retrieve form values
+                    var ma = $("#txtMa").val();
+                    var ht = $("#txtHT").val();
+                    var ngayHD = $("#txtDate").val();
+                    var chucVu = $("input[name='chucVu']:checked").val();
+                    var bacLuong = $("#selectBacLuong option:selected").text();
+                    var heSoLuong = $("#txtHeSo").val();
+
+                    // Append the new row to the table
+                    var newRow = `
+                <tr>
+                    <td>${i++}</td> 
+                    <td>${ma}</td>
+                    <td>${ht}</td>
+                    <td>${ngayHD}</td>
+                    <td>${chucVu}</td>
+                    <td>${bacLuong} (${heSoLuong})</td>
+                </tr>
+            `;
+                    $("#tbDanhSach").append(newRow);
+                    $("#myModal").modal("hide"); // Hide the modal
+                    return true;
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="container border">
+        <div style="background-color: rgb(120, 183, 219);" class=" col-md-12 ">
+            <h1 style="text-align: center; color: rgb(26, 81, 143); " class="mx-auto">DANH SÁCH LƯƠNG NHÂN VIÊN</h1>
+        </div>
+        <div class="row">
+            <div class="navbar">
+                <ul class="nav">
+                    <li class="nav-item"><a href="#" class="nav-link">Trang chủ</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Thông tin</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" id="btnTT" data-bs-toggle="modal" data-bs-target="#myModal">Cập nhập lương</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbDanhSach">
+                <tr>
+                    <th>STT</th>
+                    <th>Mã nhân sự</th>
+                    <th>Họ tên</th>
+                    <th>Ngày hợp đồng</th>
+                    <th>Chức vụ</th>
+                    <th>Bật lương</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>912345678</td>
+                    <td>Hoàng Minh Vương</td>
+                    <td>12/05/2000</td>
+                    <td>Nhân viên</td>
+                    <td>1.86</td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">THÔNG TIN CÁ NHÂN</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form" id="form1">
+                            <div class="mb-3">
+                                <label for="txtMa" class="form-label">Mã nhân viên:</label>
+                                <input type="text" class="form-control" id="txtMa" placeholder="912345678">
+                                <span class="mauDo" id="tbMa">(*)</span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtHT" class="form-label">Tên nhân viên:</label>
+                                <input type="text" class="form-control" id="txtHT" placeholder="Họ tên">
+                                <span class="mauDo" id="tbTen">(*)</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="txtDate" class="form-label">Ngày vào công ty:</label>
+                                <input type="date" class="form-control" id="txtDate">
+                                <span class="mauDo" id="tbDate">(*)</span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtCV" class="form-label">Chức vụ</label><br>
+                                <input type="radio" name="chucVu" value="Cán bộ quản lí">
+                                <label for="">Cán bộ quản lí</label>
+                                <input type="radio" name="chucVu" value="Nhân viên">
+                                <label for="">Nhân viên</label><br>
+                                <span class="mauDo" id="tbCV">(*)</span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtDt" class="form-label">Bậc lương:</label><br>
+                                <select style="width: 100%;" id="selectBacLuong">
+                                    <option value="1.5">Bậc 1</option>
+                                    <option value="1.8">Bậc 2</option>
+                                    <option value="2.1">Bậc 3</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtHeSo" class="form-label">Hệ số</label>
+                                <input type="text" class="form-control" id="txtHeSo" placeholder="" readonly>
+                            </div>
+                            <button style="background-color: rgb(61, 208, 228);" type="button" class="btn btn-success w-30" id="btnSave">Thêm</button><br>
+                        </form>
+                        <div class="footer">
+                            <button style="background-color: rgb(61, 208, 228);" type="button" class="btn btn-close w-30" id="btnSave"><p>Close</p></button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row bg-primary">
+            <div style="background-color: rgb(132, 14, 205);" class=" col-md-12 ">
+                <h6 style="text-align: center; color: rgb(174, 232, 16); font-size: large; ">22664331 Đỗ Trung Hiếu</h6>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
