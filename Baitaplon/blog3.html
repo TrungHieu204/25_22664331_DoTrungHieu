@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Du Lịch - Mẹo Sử Dụng Vali</title>
+    <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.1-web/css/all.css">
+    <link rel="stylesheet" href="./asset/css/base.css">
+    <link rel="stylesheet" href="./asset/css/header-nav.css">
+    <link rel="stylesheet" href="./asset/css/index.css">
+    <style>
+        .mid-body {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        .blog-post {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+            margin-top: 10px;
+        }
+        
+        .blog-post h2 {
+            color: #007bff;
+            font-size: 1.5em;
+        }
+        
+        .blog-post p {
+            text-align: justify;
+        }
+        
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        .read-more:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page">
+        <div class="row">
+            <header class="header">
+                <section class="grid">
+                    <section class="header-wrap">
+                        <!-- Logo -->
+                        <section class="header__logo">
+                            <a href="index.html" class="logo-link">
+                                <img style="width: 300px; height: auto;" src="./asset/img/vali/logo-vali-viet.jpg" alt="">
+                            </a>
+                        </section>
+
+                        <!-- Search bar -->
+                        <section class="header__search">
+                            <section class="search-wrap">
+                                <input type="text" class="search-input text-center" id="searchProduct" placeholder="Tìm kiếm Vali">
+                                <button class="search-btn" onclick="searchProduct()">
+                                    <i class="search-btn-icon fas fa-search"></i>
+                                </button>
+                            </section>
+                        </section>
+
+                        <!-- Cart -->
+                        <section class="header__cart">
+                            <section class="cart-wrap">
+                                <a href="auth_cart.html" class="cart-link">
+                                    <i class="cart-icon fas fa-shopping-cart"></i>
+                                    <small class="cart-notice">0</small>
+                                </a>
+                            </section>
+                        </section>
+                        <label for="menu-checkbox" class="show-menu-btn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </label>
+                    </section>
+                </section>
+            </header>
+        </div>
+        <nav class="navbar">
+            <input type="checkbox" name="" id="menu-checkbox">
+            <ul class="navbar__menu">
+                <li class="menu-item">
+                    <a href="web.html" class="menu-item-link">Home</a>
+                </li>
+                <li class="menu-item menu-item-active">
+                    <a href="index.html" class="menu-item-link">Trang chủ</a>
+                </li>
+                <li class="menu-item item-drop">
+                    <a href="#" class="menu-item-link">Sản phẩm</a>
+                    <ul class="menu-drop">
+                        <a href="Loaivali.html" id="TRADITIONAL">Vali khóa khung</a>
+                        <a href="Loaivali.html" id="DESIGNED"> Vali nhựa dẻo</a>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="lienhe.html" class="menu-item-link">Liên hệ</a>
+                </li>
+                <li class="menu-item" id="btnProfile">
+                    <a href="gioithieu.html" class="menu-item-link">Giới thiệu</a>
+                </li>
+                <li class="menu-item">
+                    <a href="blog.html" class="menu-item-link">Blog</a>
+                </li>
+                <li class="menu-item" id="btnDangnhap">
+                    <a href="auth_form.html" class="menu-item-link">Đăng nhập</a>
+                </li>
+                <li class="menu-item" id="btnLogout" onclick="logout()" style="display: none;">
+                    <a href="index.html" class="menu-item-link">Đăng xuất</a>
+                </li>
+                <label for="menu-checkbox" class="hide-menu-btn">
+                    <i class="fas fa-times"></i>
+                </label>
+            </ul>
+        </nav>
+        <div class="mid-body">
+            <div class="blog-post">
+                <h2>Các Phụ Kiện Đi Kèm Vali Giúp Chuyến Đi Thêm Tiện Nghi</h2>
+                <p style="line-height: 30px; margin-top: 10px;">Khi chuẩn bị cho một chuyến đi, vali là vật dụng chính, nhưng các phụ kiện đi kèm cũng đóng vai trò rất quan trọng, giúp việc đóng gói, sắp xếp và bảo quản hành lý trở nên thuận tiện hơn. Dưới đây là một số phụ kiện đi kèm vali mà bạn
+                    không nên bỏ qua: <br>1. Dây Đai Bảo Vệ Vali Dây đai bảo vệ giúp giữ cho vali chắc chắn và an toàn hơn trong suốt hành trình, đặc biệt là khi bạn phải ký gửi hành lý. Nó còn giúp giảm áp lực lên khóa kéo, ngăn chặn trường hợp vali
+                    vô tình bị mở ra. Nhiều dây đai còn có mã khóa bảo mật để bảo vệ hành lý khỏi mất cắp. <br>2. Túi Đựng Giày Để giày dép riêng trong túi đựng giúp giữ vệ sinh cho hành lý, tránh bụi bẩn bám vào quần áo và các vật dụng khác. Túi đựng
+                    giày cũng giúp tổ chức không gian trong vali hợp lý hơn, dễ dàng lấy ra khi cần. <br>3. Gối Kê Cổ Gối kê cổ là phụ kiện hữu ích, đặc biệt cho những chuyến bay hoặc chuyến đi đường dài. Nó giúp giảm áp lực lên cổ và vai, mang lại cảm
+                    giác thoải mái hơn khi bạn cần nghỉ ngơi. <br>4.Túi Bảo Quản Mỹ Phẩm Chống Nước Đối với những ai mang theo mỹ phẩm và các vật dụng chăm sóc cá nhân, túi chống nước giúp ngăn chặn trường hợp sản phẩm bị rò rỉ ra ngoài, tránh làm hỏng
+                    đồ đạc trong vali. Túi chống nước cũng giúp bạn dễ dàng tìm thấy các vật dụng này mà không cần lục tung vali. <br>5. Ổ Cắm Đa Năng Ổ cắm đa năng (adapter) rất cần thiết khi bạn đi du lịch quốc tế, giúp sạc thiết bị điện tử dễ dàng
+                    ở bất kỳ quốc gia nào. Một số loại còn có cổng USB để sạc cùng lúc nhiều thiết bị, tiết kiệm thời gian. <br>6. Khóa Số Hoặc Khóa Dấu Vân Tay Nếu bạn cần bảo vệ hành lý một cách nghiêm ngặt, khóa số hoặc khóa dấu vân tay là lựa chọn
+                    tuyệt vời. Đây là giải pháp an toàn giúp bạn an tâm hơn khi ký gửi hành lý hoặc lưu trữ đồ vật quan trọng trong vali. <br>7. Pin Sạc Dự Phòng Khi di chuyển nhiều, pin sạc dự phòng là vật dụng không thể thiếu. Bạn sẽ dễ dàng sạc điện
+                    thoại, máy ảnh hoặc các thiết bị khác mà không cần lo lắng về việc tìm ổ cắm. Chọn một loại sạc dự phòng nhỏ gọn nhưng dung lượng lớn sẽ giúp bạn tiết kiệm không gian. <br>8. Túi Khóa Zip (Ziplock Bags) Túi khóa zip rất tiện lợi khi
+                    đựng các đồ vật nhỏ, thực phẩm, hoặc những món đồ dễ đổ như dầu gội, sữa tắm. Chúng ngăn không cho chất lỏng tràn ra ngoài và giữ vệ sinh chung cho hành lý của bạn.</p>
+                <img src="asset/img/vali/img4.jpg" alt="" style="width: 100%;">
+            </div>
+        </div>
+
+        <footer class="footer">
+            <section class="grid-1">
+                <section class="footer-wrap">
+                    <div class="footer-info">
+                        <h3>Vali Việt</h3>
+                        <p>Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Gò Vấp, Hồ Chí Minh</p>
+                        <p>Điện thoại: 0987456132</p>
+                        <p>Email: valiviet@gmail.com </p>
+                    </div>
+                    <div class="footer-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.85816909105!2d106.68427047451767!3d10.822164158349462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1730614180740!5m2!1svi!2s"
+                            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </section>
+            </section>
+        </footer>
+</body>
+
+</html>

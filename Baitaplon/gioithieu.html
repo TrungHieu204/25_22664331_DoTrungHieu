@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu</title>
+    <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.1-web/css/all.css">
+    <link rel="stylesheet" href="./asset/css/base.css">
+    <link rel="stylesheet" href="./asset/css/header-nav.css">
+    <link rel="stylesheet" href="./asset/css/index.css">
+    <link rel="stylesheet" href="./asset/css/gioithieu.css">
+</head>
+
+<body>
+    <section class="page">
+        <div class="row">
+            <header class="header">
+                <section class="grid-1">
+                    <section class="header-wrap">
+                        <!-- Logo -->
+                        <section class="header__logo">
+                            <a href="index.html" class="logo-link">
+                                <img style="width: 300px; height: auto;" src="./asset/img/vali/logo-vali-viet.jpg" alt="">
+                            </a>
+                        </section>
+
+                        <!-- Search bar -->
+                        <section class="header__search">
+                            <section class="search-wrap">
+                                <input type="text" class="search-input text-center" id="searchProduct" placeholder="Tìm kiếm Vali">
+                                <button class="search-btn" onclick="searchProduct()">
+                                    <i class="search-btn-icon fas fa-search"></i>
+                                </button>
+                            </section>
+                        </section>
+
+                        <!-- Cart -->
+                        <section class="header__cart">
+                            <section class="cart-wrap">
+                                <a href="auth_cart.html" class="cart-link">
+                                    <i class="cart-icon fas fa-shopping-cart"></i>
+                                    <small class="cart-notice">0</small>
+                                </a>
+                            </section>
+                        </section>
+                        <label for="menu-checkbox" class="show-menu-btn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </label>
+                    </section>
+                </section>
+            </header>
+        </div>
+        <nav class="navbar">
+            <input type="checkbox" name="" id="menu-checkbox">
+            <ul class="navbar__menu">
+                <li class="menu-item">
+                    <a href="web.html" class="menu-item-link">Home</a>
+                </li>
+                <li class="menu-item menu-item-active">
+                    <a href="index.html" class="menu-item-link">Trang chủ</a>
+                </li>
+                <li class="menu-item item-drop">
+                    <a href="#" class="menu-item-link">Sản phẩm</a>
+                    <ul class="menu-drop">
+                        <a href="Loaivali.html" id="TRADITIONAL">Vali khóa khung</a>
+                        <a href="Loaivali.html" id="DESIGNED"> Vali nhựa dẻo</a>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="lienhe.html" class="menu-item-link">Liên hệ</a>
+                </li>
+                <li class="menu-item" id="btnProfile">
+                    <a href="gioithieu.html" class="menu-item-link">Giới thiệu</a>
+                </li>
+                
+                <li class="menu-item" id="btnDangnhap">
+                    <a href="auth_form.html" class="menu-item-link">Đăng nhập</a>
+                </li>
+                <li class="menu-item" id="btnLogout" onclick="logout()" style="display: none;">
+                    <a href="index.html" class="menu-item-link">Đăng xuất</a>
+                </li>
+                <label for="menu-checkbox" class="hide-menu-btn">
+                    <i class="fas fa-times"></i>
+                </label>
+            </ul>
+        </nav>
+
+        <section class="content">
+            <section class="grid">
+                <h1 class="intro-title" style="font-family: 'Times New Roman', Times, serif; color: #0039a0;">GIỚI THIỆU VỀ CÔNG DỤNG VALI</h1>
+                <p class="intro-text" style="font-family: 'Times New Roman', Times, serif;">Vali là vật dụng thiết yếu cho những chuyến đi, giúp sắp xếp và bảo vệ hành lý một cách gọn gàng và an toàn. Với các ngăn chứa khoa học, vali cho phép người dùng phân loại đồ đạc, từ quần áo, giày dép đến phụ kiện cá nhân, giảm thiểu rủi
+                    ro thất lạc đồ</p>
+                <p class="intro-text" style="font-family: 'Times New Roman', Times, serif;">Bên cạnh đó, các loại vali hiện đại còn được trang bị bánh xe xoay 360 độ và tay kéo chắc chắn, giúp di chuyển dễ dàng, nhẹ nhàng, đặc biệt là trong các chuyến bay hay những hành trình dài. Nhờ khả năng chống va đập và khóa an toàn đạt
+                    chuẩn, vali là người bạn đồng hành đáng tin cậy, bảo vệ tài sản của bạn trong mọi điều kiện.</p>
+                <p class="intro-text" style="font-family: 'Times New Roman', Times, serif;">Vali không chỉ mang lại tiện ích trong việc sắp xếp đồ đạc mà còn thể hiện phong cách và cá tính của người dùng. Với thiết kế đa dạng từ kích thước, màu sắc đến chất liệu, vali phù hợp cho nhiều mục đích sử dụng như du lịch, công tác hay
+                    di chuyển hằng ngày. Các dòng vali hiện đại còn tích hợp thêm nhiều tính năng thông minh như cổng sạc USB, khóa số TSA đạt chuẩn quốc tế để bảo vệ hành lý khi qua sân bay, và lớp vải chống nước, giúp đồ đạc không bị ảnh hưởng bởi thời
+                    tiết xấu. Không chỉ là vật dụng lưu trữ, vali còn mang lại trải nghiệm tiện nghi và thoải mái, góp phần làm cho chuyến đi thêm phần thú vị và trọn vẹn.</p>
+                <h1 class="intro-title" style="font-family: 'Times New Roman', Times, serif; color: #0039a0;">LỊCH SỬ HÌNH THÀNH VALI</h1>
+                <p class="intro-text" style="font-family: 'Times New Roman', Times, serif;">Lịch sử hình thành của vali gắn liền với nhu cầu di chuyển và du lịch của con người qua các thời kỳ. Từ thế kỷ 19, khi ngành đường sắt phát triển mạnh mẽ ở châu Âu, vali bắt đầu xuất hiện như một giải pháp lưu trữ và vận chuyển đồ đạc
+                    gọn gàng cho những hành trình dài. Lúc này, vali chủ yếu được làm từ gỗ và da, khá nặng và cồng kềnh nhưng rất bền, phù hợp với phương tiện di chuyển thô sơ.</p>
+                <p class="intro-text" style="font-family: 'Times New Roman', Times, serif;">Đến đầu thế kỷ 20, cùng với sự phát triển của hàng không và nhu cầu du lịch tăng cao, vali cũng thay đổi theo hướng nhẹ hơn và tiện dụng hơn. Các nhà sản xuất bắt đầu sử dụng vật liệu mới như nhôm và nhựa để giảm trọng lượng vali. Năm
+                    1970, một bước ngoặt quan trọng đã diễn ra khi Bernard Sadow, một doanh nhân người Mỹ, phát minh ra vali có bánh xe, giúp việc di chuyển hành lý trở nên dễ dàng hơn bao giờ hết. Phát minh này nhanh chóng được phổ biến rộng rãi, thay
+                    đổi hoàn toàn cách mọi người sử dụng vali.</p>
+                <p class="intro-text" style="font-family: 'Times New Roman', Times, serif;">Sau đó, vào những năm 1980, công ty Travelpro đã giới thiệu dòng vali với tay kéo dài và bánh xe xoay, cho phép vali có thể đứng và được kéo theo chiều dọc. Đây là thiết kế được ưa chuộng cho đến ngày nay, mang lại sự tiện lợi tối đa khi
+                    di chuyển, đặc biệt là trong các sân bay đông đúc.</p>
+                <p class="intro-text" style="font-family: 'Times New Roman', Times, serif;">Vali hiện đại ngày càng được cải tiến với các tính năng thông minh như khóa số TSA, cổng sạc USB, và các chất liệu nhẹ, bền, chống va đập. Từ một vật dụng đơn giản để chứa đồ, vali đã trở thành biểu tượng của du lịch, không chỉ đáp ứng
+                    nhu cầu lưu trữ mà còn thể hiện phong cách sống và cá tính của người dùng.</p>
+                <img src="asset/img/vali/lich-su-samsonite-7_95357106f9df4803bb9f0614a8766587.webp" alt="">
+            </section>
+        </section>
+
+        <footer class="footer">
+            <section class="grid-1">
+                <section class="footer-wrap">
+                    <div class="footer-info">
+                        <h3>Vali Việt</h3>
+                        <p>Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Gò Vấp, Hồ Chí Minh</p>
+                        <p>Điện thoại: 0987456132</p>
+                        <p>Email: valiviet@gmail.com </p>
+                    </div>
+                    <div class="footer-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.85816909105!2d106.68427047451767!3d10.822164158349462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1730614180740!5m2!1svi!2s"
+                            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </section>
+            </section>
+        </footer>
+    </section>
+
+    <script src="./asset/js/index_currentuser.js"></script>
+    <script src="./asset/js/script_product.js"></script>
+    <script src="./asset/js/index_loadproduct.js"></script>
+    <script src="./asset/js/index_control.js"></script>
+</body>
+
+</html>
