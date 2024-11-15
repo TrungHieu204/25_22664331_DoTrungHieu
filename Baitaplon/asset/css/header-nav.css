@@ -1,0 +1,284 @@
+/* Header */
+
+.header {
+    width: 100%;
+}
+
+.header-wrap {
+    display: flex;
+    padding: 18px 8px;
+    align-items: center;
+    background-color: #0039a0;
+    margin-bottom: 30px;
+    height: 170px;
+}
+
+.header__logo {
+    width: 280px;
+}
+
+.logo-link {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.header__search {
+    flex: 1;
+    width: 50%;
+    margin-left: 50px;
+}
+
+.search-wrap {
+    display: flex;
+}
+
+.search-input {
+    flex: 1;
+    padding: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    outline: none;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+}
+
+.search-btn {
+    border: none;
+    background-color: rgb(18, 202, 175);
+    padding: 8px 18px;
+    border-radius: 3px;
+    margin-left: 4px;
+    color: #fafafa;
+}
+
+.search-btn:hover {
+    background-color: #0039a0;
+    cursor: pointer;
+}
+
+.header__cart {
+    width: 280px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+
+.cart-link {
+    position: relative;
+}
+
+.cart-icon {
+    font-size: 2rem;
+    padding: 6px;
+    color: white;
+}
+
+.cart-icon:hover {
+    color: var(--primary-color);
+}
+
+.cart-notice {
+    position: absolute;
+    top: -5px;
+    right: 0px;
+    color: var(--primary-color);
+    background-color: white;
+    border-radius: 50%;
+    padding: 0 2px;
+    font-size: 11px;
+    border: 1px solid var(--primary-color);
+}
+
+
+/* Menu */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-image: url("asset/img/vali/pngtree-travel-suitcase-picture-image_2394995.jpg");
+    padding: 18px 8px;
+    margin-left: 18px;
+    margin-right: 18px;
+    background-color: #0039a0;
+    border-radius: 10px;
+}
+
+.navbar__menu {
+    display: flex;
+    user-select: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.menu-item.menu-item-active a {
+    color: yellow;
+}
+
+.menu-item a {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 10px;
+    transition: 0.4s;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: large;
+    color: #ffffff;
+}
+
+.menu-item a:hover {
+    color: yellow;
+    background-color: aqua;
+}
+
+.show-menu-btn,
+.hide-menu-btn {
+    transition: all 0.4s;
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: none;
+}
+
+#menu-checkbox {
+    position: absolute;
+    visibility: hidden;
+    z-index: -1111;
+}
+
+
+/*menu con*/
+
+
+/*Ẩn các menu con cấp 1,2,3*/
+
+.item-drop {
+    position: relative;
+}
+
+.menu-drop {
+    display: none;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 1px 1px 8px #ccc;
+}
+
+.menu-item .menu-drop a {
+    color: black;
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 0;
+    border: 1px solid var(--primary-color);
+}
+
+.menu-drop a:hover {
+    background-color: rgb(18, 202, 175);
+}
+
+
+/*khi hover thì hiện menu con*/
+
+.item-drop:hover>.menu-drop {
+    display: block;
+}
+
+.footer {
+    width: 98%;
+    margin: auto;
+    background-color: #0da0c1;
+}
+
+.footer-info {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+}
+
+footer iframe {
+    margin-left: 700px;
+    height: 200px;
+    width: 700px;
+    margin-top: -140px;
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 768px) {
+    .header__logo {
+        width: 120px;
+    }
+    .header__cart {
+        width: 100px;
+        margin-right: 16px;
+    }
+    .show-menu-btn,
+    .hide-menu-btn {
+        display: block;
+    }
+    .show-menu-btn:hover,
+    .hide-menu-btn:hover {
+        color: var(--primary-color);
+    }
+    .navbar__menu {
+        position: fixed;
+        z-index: 1111;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: -100%;
+        font-size: 16px;
+        background-color: #333;
+        text-align: center;
+        display: block;
+        padding: 80px 0;
+        margin: 0;
+        line-height: normal;
+        transition: 0.4s;
+    }
+    .menu-item {
+        padding: 16px 0;
+    }
+    .menu-item a {
+        color: #fafafa;
+    }
+    .menu-drop a {
+        color: black;
+    }
+    .menu-drop {
+        width: 50%;
+        right: 24%;
+    }
+    .hide-menu-btn {
+        position: absolute;
+        top: 24px;
+        right: 16px;
+    }
+    #menu-checkbox:checked~.navbar__menu {
+        right: 0;
+    }
+}
+
+
+/* Footer */
+
+.footer {
+    background-color: #222;
+    color: #fafafa;
+    font-size: 12px;
+}
+
+.footer-wrap {
+    padding: 20px 8px;
+}
+
+.footer-wrap h3 {
+    text-transform: uppercase;
+    margin: 8px 0;
+    color: var(--primary-color);
+}
+
+.footer-wrap p {
+    margin: 8px 0;
+}
